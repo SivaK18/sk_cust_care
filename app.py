@@ -12,7 +12,7 @@ bot = telegram.Bot(token=TOKEN)
 URL = "https://sk-cares.herokuapp.com/"
 app = Flask(__name__)
 
-@app.route('/{}'.format(TOKEN), methods=['POST'])
+@app.route('/TOKEN', methods=['GET','POST'])
 def respond():
    # retrieve the message in JSON and then transform it to Telegram object
    print("response")
