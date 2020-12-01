@@ -9,7 +9,7 @@ global bot
 global TOKEN
 TOKEN = "1471624452:AAEPVzcP48Xjq6Kvr7mfV6BTFVMGJKZYqdQ"
 bot = telegram.Bot(token=TOKEN)
-URL = "https://sk-cares.herokuapp.com/"
+URL = "https://sk-cares.herokuapp.com"
 app = Flask(__name__)
 
 @app.route('/TOKEN', methods=['GET','POST'])
