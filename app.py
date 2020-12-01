@@ -56,7 +56,7 @@ def respond():
 def set_webhook():
    #s = bot.setWebhook('{URL}{HOOK}'.format(URL=URL, HOOK=TOKEN))
    print('hook setting up !')
-   s = bot.setWebhook('{URL}{HOOK}'.format(URL=URL, HOOK=TOKEN))
+    s = bot.setWebhook('%s/%s'%(URL, TOKEN), PORT=8443)
    if s:
        return "webhook setup ok"
    else:
