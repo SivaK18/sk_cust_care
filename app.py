@@ -15,8 +15,8 @@ app = Flask(__name__)
 @app.route('/bot{TOKEN}'.format(TOKEN=TOKEN), methods=['POST','GET'])
 def respond():
    # retrieve the message in JSON and then transform it to Telegram object
-   updates = bot.get_updates()
-   print(u.message.text for u in updates)
+   #updates = bot.get_updates()
+   #print(u.message.text for u in updates)
    print("response")
    update = telegram.Update.de_json(request.get_json(force=True), bot)
 
