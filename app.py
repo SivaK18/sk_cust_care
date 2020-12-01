@@ -3,18 +3,20 @@ import telegram
 import re
 from flask import Flask, request
 import telegram
-
+from credentials import bot_token, bot_user_name,URL
 
 global bot
 global TOKEN
-TOKEN = "1471624452:AAEPVzcP48Xjq6Kvr7mfV6BTFVMGJKZYqdQ"
+TOKEN = bot_token
 bot = telegram.Bot(token=TOKEN)
-URL = "https://sk-cares.herokuapp.com"
 app = Flask(__name__)
+
 
 @app.route('/{}'.format(TOKEN), methods=['POST','GET'])
 def respond():
    # retrieve the message in JSON and then transform it to Telegram object
+   updates = bot.get_updates()
+   print(u.message.text for u in updates)
    print("response")
    update = telegram.Update.de_json(request.get_json(force=True), bot)
 
