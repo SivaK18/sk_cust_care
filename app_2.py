@@ -8,7 +8,7 @@ import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import os
 PORT = int(os.environ.get('PORT', 5000))
-
+import bot
 import credentials 
 
 # Enable logging
@@ -29,8 +29,9 @@ def help(update, context):
     update.message.reply_text('Help!')
 def cust_care(update,context):
     """"The url care :) """
-    update.message.reply_text(update.message.text)
-    
+    text = update.message.text.split("/cust_care ")
+    update.message.reply_text(bot.care(text[1]))
+
 def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)

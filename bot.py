@@ -10,7 +10,22 @@ bot = telegram.Bot(token='1471624452:AAEPVzcP48Xjq6Kvr7mfV6BTFVMGJKZYqdQ')
 
 updates = bot.get_updates()
 
-    #read a message
+
+#read a message
+def care(message):
+    """
+    docstring
+    """
+    #message= mess.text
+    #print(message)
+    #print(type(message))
+    query= str(message).split(' , ')
+    print(query)
+    if(len(query)==2):
+        #print(eval(query[1]))
+        return care.find_stock(eval(query[0]),eval(query[1]))
+    
+    
 for u in updates:
     message= u.message.text
     #print(message)
