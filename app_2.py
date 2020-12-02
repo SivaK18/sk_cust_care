@@ -50,7 +50,11 @@ def get_notif_90(update,context):
     """"The url care :) """
     text = update.message.text.split("/get_notif_90 ")
     for i in range(90):
-        update.message.reply_text(bot.notif(text[1]))
+        if bot.notif(text[1]) == 0:
+            #do nothing 
+            continue
+        else: 
+            update.message.reply_text(bot.notif(text[1]))
         time.sleep(120)
 
 def error(update, context):

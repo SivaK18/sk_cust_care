@@ -41,6 +41,8 @@ def notif(message):
         #return list_str
         if (list_str[0] > 0): #instock
             return str(list_str[0])+" is available"
+        else : 
+            return 0
    
 ''' 
 for u in updates:
