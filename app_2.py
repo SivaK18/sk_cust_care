@@ -11,6 +11,7 @@ import os
 PORT = int(os.environ.get('PORT', 5000))
 import bot
 import credentials 
+import time
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -28,6 +29,7 @@ def start(update, context):
 def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
+
 def cust_care(update,context):
     """"The url care :) """
     text = update.message.text.split("/cust_care ")
@@ -37,10 +39,19 @@ def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
 
-def get_notif(update,context):
+def get_notif_10(update,context):
     """"The url care :) """
     text = update.message.text.split("/get_notif ")
-    update.message.reply_text(bot.notif(text[1]))
+    for i in range(10):
+        update.message.reply_text(bot.notif(text[1]))
+        time.sleep(120)
+
+def get_notif_90(update,context):
+    """"The url care :) """
+    text = update.message.text.split("/get_notif ")
+    for i in range(90):
+        update.message.reply_text(bot.notif(text[1]))
+        time.sleep(120)
 
 def error(update, context):
     """Log Errors caused by Updates."""
@@ -60,7 +71,8 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("cust_care",cust_care))
-    dp.add_handler(CommandHandler("get_notif",get_notif))
+    dp.add_handler(CommandHandler("get_notif_10",get_notif_10))
+    dp.add_handler(CommandHandler("get_notif_90",get_notif_90))
     
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
