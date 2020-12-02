@@ -37,7 +37,7 @@ def notif(message):
     print(query)
     if(len(query)==2):
         #print(eval(query[1]))
-        list_str= final.ajio_care.find_stock(query[0],eval(query[1]))
+        list_str= final.ajio_care.find_stock(eval(query[0]),eval(query[1]))
         if (list_str[0]>0):
             return list_str[0]+" is available"
    
