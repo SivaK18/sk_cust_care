@@ -41,14 +41,14 @@ def echo(update, context):
 
 def get_notif_10(update,context):
     """"The url care :) """
-    text = update.message.text.split("/get_notif ")
+    text = update.message.text.split("/get_notif_10 ")
     for i in range(10):
         update.message.reply_text(bot.notif(text[1]))
         time.sleep(120)
 
 def get_notif_90(update,context):
     """"The url care :) """
-    text = update.message.text.split("/get_notif ")
+    text = update.message.text.split("/get_notif_90 ")
     for i in range(90):
         update.message.reply_text(bot.notif(text[1]))
         time.sleep(120)
