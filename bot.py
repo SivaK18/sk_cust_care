@@ -34,13 +34,13 @@ def notif(message):
     #print(message)
     #print(type(message))
     query= str(message).split(',')
-    print(query)
+    #print(query)
     if(len(query)==2):
         #print(eval(query[1]))
         list_str= final.ajio_care.find_stock(eval(query[0]),eval(query[1]))
-        return list_str
-        #if (list_str[0]>0):
-            #return list_str[0]+" is available"
+        #return list_str
+        if (list_str[0] > 0): #instock
+            return str(list_str[0])+" is available"
    
 ''' 
 for u in updates:
