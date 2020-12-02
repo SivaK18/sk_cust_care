@@ -27,7 +27,10 @@ def start(update, context):
 def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
-
+def cust_care(update,context):
+    """"The url care :) """
+    update.message.reply_text(update.message.text)
+    
 def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
@@ -49,7 +52,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-
+    dp.add_handler(CommandHandler("cust_care",cust_care))
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
 
