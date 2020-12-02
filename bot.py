@@ -1,7 +1,8 @@
 #from telegram.messageentity import MessageEntity
-from final import ajio_care as care
 
+#from final import ajio_care as care
 
+import final
 #import telegram
 #bot = telegram.Bot(token='1471624452:AAEPVzcP48Xjq6Kvr7mfV6BTFVMGJKZYqdQ')
 
@@ -19,11 +20,11 @@ def care(message):
     #message= mess.text
     #print(message)
     #print(type(message))
-    query= str(message).split(' , ')
+    query= str(message).split(',')
     print(query)
     if(len(query)==2):
         #print(eval(query[1]))
-        return care.find_stock(eval(query[0]),eval(query[1]))
+        return final.ajio_care.find_stock(eval(query[0]),eval(query[1]))
     
 ''' 
 for u in updates:
