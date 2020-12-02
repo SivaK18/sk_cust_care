@@ -5,6 +5,7 @@ Author: liuhh02 https://medium.com/@liuhh02
 """
 
 import logging
+from requests.api import get
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import os
 PORT = int(os.environ.get('PORT', 5000))
@@ -36,6 +37,11 @@ def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
 
+def get_notif(update,context):
+    """"The url care :) """
+    text = update.message.text.split("/get_notif ")
+    update.message.reply_text(bot.notif(text[1]))
+
 def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
@@ -54,6 +60,8 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("cust_care",cust_care))
+    dp.add_handler(CommandHandler("get_notif",get_notif))
+    
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
 
