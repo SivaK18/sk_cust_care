@@ -1,1 +1,1 @@
-web: gunicorn app:app -b 0.0.0.0:8443
+web: python app_2.py
