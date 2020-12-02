@@ -52,7 +52,7 @@ def get_notif_90(update,context):
     for i in range(90):
         if bot.notif(text[1]) == 0:
             #do nothing 
-            continue
+            x="hello"
         else: 
             update.message.reply_text(bot.notif(text[1]))
         time.sleep(120)
