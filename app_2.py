@@ -46,6 +46,13 @@ def get_notif_10(update,context):
         update.message.reply_text(bot.notif(text[1]))
         time.sleep(120)
 
+def get_notif_25(update,context):
+    """"The url care :) """
+    text = update.message.text.split("/get_notif_25 ")
+    for i in range(25):
+        update.message.reply_text(bot.notif(text[1]))
+        time.sleep(120)
+
 def get_notif_90(update,context):
     """"The url care :) """
     text = update.message.text.split("/get_notif_90 ")
@@ -77,6 +84,7 @@ def main():
     dp.add_handler(CommandHandler("cust_care",cust_care))
     dp.add_handler(CommandHandler("get_notif_10",get_notif_10))
     dp.add_handler(CommandHandler("get_notif_90",get_notif_90))
+    dp.add_handler(CommandHandler("get_notif_25",get_notif_25))
     
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
