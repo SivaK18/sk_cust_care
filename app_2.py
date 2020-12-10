@@ -6,8 +6,11 @@ Author: liuhh02 https://medium.com/@liuhh02
 
 import logging
 from requests.api import get
+from telegram.bot import Bot
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import os
+
+from bot import notif
 PORT = int(os.environ.get('PORT', 5000))
 import bot
 import credentials 
@@ -50,14 +53,18 @@ def get_notif_25(update,context):
     """"The url care :) """
     text = update.message.text.split("/get_notif_25 ")
     for i in range(25):
-        update.message.reply_text(bot.notif(text[1]))
+        if (bot.notif(text[1]) == 0 or Bot.notif(text[1]) == '0'):
+            #do nothing 
+            x="hello"
+        else: 
+            update.message.reply_text(bot.notif(text[1]))
         time.sleep(120)
-
+        
 def get_notif_90(update,context):
     """"The url care :) """
     text = update.message.text.split("/get_notif_90 ")
     for i in range(90):
-        if bot.notif(text[1]) == 0:
+        if (bot.notif(text[1]) == 0 or Bot.notif(text[1]) == '0'):
             #do nothing 
             x="hello"
         else: 
